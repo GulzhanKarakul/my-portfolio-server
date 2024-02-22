@@ -4,8 +4,9 @@ const router = express.Router(); // Создание роутера Express дл
 const cors = require("cors"); // Подключение модуля для обеспечения CORS (Cross-Origin Resource Sharing)
 const nodemailer = require("nodemailer"); // Подключение модуля для отправки электронной почты
 require('dotenv').config();
-const functions = require("firebase-functions");
+
 const PORT = process.env.PORT || 5000;
+
 
 // Создание экземпляра приложения Express
 const app = express();
@@ -75,4 +76,3 @@ router.post("/contact", (req, res) => {
   });
 });
 
-exports.api = functions.https.onRequest(app);
