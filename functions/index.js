@@ -5,7 +5,12 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({ origin: true }));
+app.use(cors({
+  origin: 'https://gulzhankarakul.github.io/my-portfolio/',
+  methods: ['POST'], // Указываете только методы, которые разрешены на вашем сервере
+  optionsSuccessStatus: 200 // Необходимо для старых браузеров
+}));
+
 app.use(express.json());
 
 const contactEmail = nodemailer.createTransport({
